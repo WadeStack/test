@@ -23,11 +23,11 @@ jobs:
         python-version: 3.8
     - name: run test
       run: python test.py
-#     - name: Commit and push if changed
-#       run: |-
-#         git diff
-#         git config --global user.email wwt2048@163.com"
-#         git config --global user.name "WadeStack"
-#         git add -A
-#         git commit -m "🤖 Updated mkdocs.yml" || exit 0
-#         git push
+    - name: Commit and push if changed
+      run: |-
+        git diff
+        git config --global user.email wwt2048@163.com"
+        git config --global user.name "WadeStack"
+        git add -A
+        git commit -m "🤖 Updated mkdocs.yml" || exit 0
+        git push
