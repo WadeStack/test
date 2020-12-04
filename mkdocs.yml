@@ -10,6 +10,7 @@ pages:
     - mysql-index: mysql-index.md
     - index: index.md
     - BenchmarkSQL5.0 数据库 TPC-C 基准测试 - 瑾熙的博客 JL Blog: BenchmarkSQL5.0 数据库 TPC-C 基准测试 - 瑾熙的博客 JL Blog.md
+    - MIT6.824 分布式系统课程中文翻译: MIT6.824 分布式系统课程中文翻译.md
     - 史上最全的数据库面试题，不看绝对后悔_资源分享_牛客网: 史上最全的数据库面试题，不看绝对后悔_资源分享_牛客网.md
     - HTTP 各版本特性及区别: HTTP 各版本特性及区别.md
     - mysql-transaction: mysql-transaction.md
