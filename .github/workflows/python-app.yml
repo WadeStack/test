@@ -23,11 +23,9 @@ jobs:
         python-version: 3.8
     - name: run test
       run: python test.py
-    - name: Commit and push if changed
+    - name: Commit and push
       run: |-
+        git config --global user.email "bot@github.com" && git config --global user.name "Bot"
         git diff
-        git config --global user.email wwt2048@163.com"
-        git config --global user.name "WadeStack"
-        git add -A
-        git commit -m "🤖 Updated mkdocs.yml" || exit 0
-        git push
+        git add . && git commit -m ":memo: 更新自述" || exit 0
+        git push 
