@@ -31,5 +31,5 @@ jobs:
       run: |-
         git config --global user.email "bot@github.com" && git config --global user.name "Bot"
         git diff
-        git add . && git commit -m ":memo: mkdocs" || exit 0
+        git add . && git commit -m ":memo: mkdocs update" || exit 0
         git push 
