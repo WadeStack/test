@@ -4,15 +4,10 @@
 name: Python application
 
 on:
-
-  commit_comment:
-    branches: [ master ]
-  delete:
-    branches: [ master ]
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 10 * * *'
 
 
 jobs:
