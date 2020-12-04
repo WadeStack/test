@@ -1,7 +1,6 @@
 site_name: My Docs
 theme: readthedocs
 plugins:
-    # - search: search
 pages:
     - Git-ComdLine-REST: Git-ComdLine-REST.md
     - ADB 操作命令详解及用法大全: ADB 操作命令详解及用法大全.md
