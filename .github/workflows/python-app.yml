@@ -4,10 +4,16 @@
 name: Python application
 
 on:
+
+  commit_comment:
+    branches: [ master ]
+  delete:
+    branches: [ master ]
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+
 
 jobs:
   build:
