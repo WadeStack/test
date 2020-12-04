@@ -154,4 +154,5 @@ HTTP 1.x 的解析是基于文本，HTTP 2 之后将所有传输的信息分割�
 -   [imququ.com/post/header…](https://imququ.com/post/header-compression-in-http2.html)
 -   [cloud.tencent.com/developer/n…](https://cloud.tencent.com/developer/news/334034)
 -   [www.cnblogs.com/Leo_wl/p/10…](https://www.cnblogs.com/Leo_wl/p/10530323.html) 
--   [https://juejin.cn/post/6844903923136856078](https://juejin.cn/post/6844903923136856078)
+
+>  [原文地址](https://juejin.cn/post/6844903923136856078)
