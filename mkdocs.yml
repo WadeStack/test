@@ -4,3 +4,7 @@ plugins:
     - search
     - mkpdfs
     - pdf-export
+    
+    
+pages:
+- 主页测试: index.md
