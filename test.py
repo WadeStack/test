@@ -3,7 +3,7 @@ import os
 data = {
     'site_name': 'My Docs',
     'theme': 'readthedocs',
-    'plugins': ['search', ],
+    'plugins': [],
     'pages': ['index: index.md']
 }
 cur_path = os.getcwd()
