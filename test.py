@@ -7,7 +7,8 @@ data = {
     'pages': ['index: index.md']
 }
 cur_path = os.getcwd()
-ul = os.listdir(os.path.join(cur_path, 'docs'))
+# ul = os.listdir(os.path.join(cur_path, 'docs'))
+ul = os.listdir('docs')
 
 data['pages'] = ul
 with open('mkdocs.yml', 'w+', encoding='utf-8') as f:
