@@ -7,7 +7,6 @@ data = {
     'pages': ['index: index.md']
 }
 cur_path = os.getcwd()
-# ul = os.listdir(os.path.join(cur_path, 'docs'))
 ul = os.listdir('docs')
 
 data['pages'] = ul
@@ -17,7 +16,7 @@ with open('mkdocs.yml', 'w+', encoding='utf-8') as f:
         if isinstance(vs, list):
             f.write('{}:\n'.format(k))
             for v in vs:
-                f.write('    - {}\n'.format(v))
+                f.write('    - {}: {}\n'.format(v.split('.md')[0], v))
 
         else:
             f.write('{}: {}\n'.format(k, vs))
