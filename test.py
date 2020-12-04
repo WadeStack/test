@@ -10,7 +10,7 @@ cur_path = os.getcwd()
 ul = os.listdir('docs')
 
 data['pages'] = ul
-with open('mkdocs.yml', 'w+', encoding='utf-8') as f:
+with open('mkdocs.yml', 'w', encoding='utf-8') as f:
     for k, vs in data.items():
 
         if isinstance(vs, list):
