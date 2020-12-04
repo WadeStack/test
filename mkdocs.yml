@@ -2,8 +2,8 @@ site_name: My Docs
 theme: readthedocs
 plugins:
     - search
-    - mkpdfs
-    - pdf-export
+#     - mkpdfs
+#     - pdf-export
     
     
 pages:
