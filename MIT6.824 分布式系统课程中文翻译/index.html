@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>MIT6.824 分布式系统课程中文翻译 - My Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "MIT6.824 \u5206\u5e03\u5f0f\u7cfb\u7edf\u8bfe\u7a0b\u4e2d\u6587\u7ffb\u8bd1";
+    var mkdocs_page_input_path = "MIT6.824 \u5206\u5e03\u5f0f\u7cfb\u7edf\u8bfe\u7a0b\u4e2d\u6587\u7ffb\u8bd1.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../Git-ComdLine-REST/">Git-ComdLine-REST</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ADB%20%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3%E5%8F%8A%E7%94%A8%E6%B3%95%E5%A4%A7%E5%85%A8/">ADB 操作命令详解及用法大全</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E5%B7%B2%E4%B8%8A%E5%B2%B8%E5%AD%97%E8%8A%82%EF%BC%8C%E6%95%B4%E7%90%86%E4%B8%80%E6%B3%A2%E6%B5%8B%E5%BC%80%E9%9D%A2%E7%BB%8F_%E7%AC%94%E7%BB%8F%E9%9D%A2%E7%BB%8F_%E7%89%9B%E5%AE%A2%E7%BD%91/">已上岸字节，整理一波测开面经_笔经面经_牛客网</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mysql-index/">mysql-index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../BenchmarkSQL5.0%20%E6%95%B0%E6%8D%AE%E5%BA%93%20TPC-C%20%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95%20-%20%E7%91%BE%E7%86%99%E7%9A%84%E5%8D%9A%E5%AE%A2%20JL%20Blog/">BenchmarkSQL5.0 数据库 TPC-C 基准测试 - 瑾熙的博客 JL Blog</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">MIT6.824 分布式系统课程中文翻译</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">简介</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#125">12.5 总结</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#124-crash-recovery">12.4 故障恢复（Crash Recovery）</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#123-two-phase-commit">12.3 两阶段提交（Two-Phase Commit）</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#122-concurrency-control">12.2 并发控制（Concurrency Control）</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#121-distributed-transaction">12.1 分布式事务初探（Distributed Transaction）</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#118-frangipani">11.8 Frangipani 总结</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#117-crash-recovery">11.7 故障恢复（Crash Recovery）</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#116-frangipani-log">11.6 Frangipani Log</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#115-atomicity">11.5 原子性（Atomicity）</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#114-cache-coherence">11.4 缓存一致性（Cache Coherence）</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%8C%E4%B8%8D%E7%9C%8B%E7%BB%9D%E5%AF%B9%E5%90%8E%E6%82%94_%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB_%E7%89%9B%E5%AE%A2%E7%BD%91/">史上最全的数据库面试题，不看绝对后悔_资源分享_牛客网</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../HTTP%20%E5%90%84%E7%89%88%E6%9C%AC%E7%89%B9%E6%80%A7%E5%8F%8A%E5%8C%BA%E5%88%AB/">HTTP 各版本特性及区别</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mysql-transaction/">mysql-transaction</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E6%B5%8B%E8%AF%95%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%90%88%E9%9B%86%20-%20anliux%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD/">测试常见问题合集 - anliux - 博客园</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E4%B8%AA%E4%BA%BA%E5%90%90%E8%A1%80%E7%B3%BB%E5%88%97%20-%20%E6%80%BB%E7%BB%93%20MySQL/">个人吐血系列 - 总结 MySQL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E4%BD%BF%E7%94%A8%20benchmarkSQL%20%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%20TPCC%20-%20konglingbin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD/">使用 benchmarkSQL 测试数据库的 TPCC - konglingbin - 博客园</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>MIT6.824 分布式系统课程中文翻译</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="mit6824">MIT6.824 分布式系统课程中文翻译</h1>
+<p>MIT6.824 分布式系统课程中文翻译</p>
+<p>底线是至少一周两更，至少更新到 Lecture 12</p>
+<h2 id="_1"><a href="https://zhuanlan.zhihu.com/p/166409783">简介</a></h2>
+<p>一直在断断续续的学习 mit 6.824 分布式系统这门课程。分布式系统是现在计算机软件系统中不可避免的一种架构，了解分布式系统对于构建任何大型分布式应用，对于理解分布式程序的运行，对于优化分布式程序的运行环境都有一定的帮助。 mit6.824 这门课程可以说是明星课程了，主讲老师是 Robert Morris，这个看起来平…</p>
+<h2 id="125"><a href="https://zhuanlan.zhihu.com/p/243325894">12.5 总结</a></h2>
+<p>这就是两阶段提交，它实现了原子提交。两阶段提交在大量的将数据分割在多个服务器上的分片数据库或者存储系统中都有使用。两阶段提交可以支持读写多条记录，一些更特殊的存储系统不允许你在多条记录上支持事务。对于这些不支持事务中包含多条数据的系统，你就不需要两阶段提交。但是如果你需要在事务中支持多条数据，并且你将数据分片在多台服务…</p>
+<h2 id="124-crash-recovery"><a href="https://zhuanlan.zhihu.com/p/243324226">12.4 故障恢复（Crash Recovery）</a></h2>
+<p>现在，我们需要在脑中设想各种可能发生的错误，并确认这里的两阶段提交协议是否仍然可以提供 All-or-Noting 的原子特性。如果不能的话，我们该如何调整或者扩展协议？ 第一个我想考虑的错误是故障重启。我的意思是类似于断电，服务器会突然中断执行，当电力恢复之后，作为事务处理系统的一部分，服务器会运行一些恢复软件。这里实际上…</p>
+<h2 id="123-two-phase-commit"><a href="https://zhuanlan.zhihu.com/p/243321864">12.3 两阶段提交（Two-Phase Commit）</a></h2>
+<p>我们下一个话题更具体一点：在一个分布式环境中，数据被分割在多台机器上，如何构建数据库或存储系统以支持事务。所以这个话题是，如何构建分布式事务（Distributed Transaction）。具体来说，如何应付错误，甚至是由多台机器中的一台引起的部分错误。这种部分错误在分布式系统中很常见。所以，在分布式事务之外，我们也…</p>
+<h2 id="122-concurrency-control"><a href="https://zhuanlan.zhihu.com/p/243320018">12.2 并发控制（Concurrency Control）</a></h2>
+<p>第一个要介绍的是并发控制（Concurrency Control）。在并发控制中，主要有两种策略，在这门课程中我都会介绍。 第一种主要策略是悲观并发控制（Pessimistic Concurrency Control）。 这里通常涉及到锁，我们在实验中的 Go 语言里面已经用过锁了。实际上，数据库的事务处理系统也会使用锁。这里…</p>
+<h2 id="121-distributed-transaction"><a href="https://zhuanlan.zhihu.com/p/243316835">12.1 分布式事务初探（Distributed Transaction）</a></h2>
+<p>今天讨论的内容是分布式事务。 分布式事务主要有两部分组成。第一个是并发控制（Concurrency Control）第二个是原子提交（Atomic Commit）。 之所以提及分布式事务，是因为对于拥有大量数据的人来说，他们通常会将数据进行分割或者分片到许多不同的服务器上。假设你运行了一个银行，你一半用户的账户在一个服务器…</p>
+<h2 id="118-frangipani"><a href="https://zhuanlan.zhihu.com/p/238007777">11.8 Frangipani 总结</a></h2>
+<p>前面我介绍了这些主要的内容： Petal 是什么 缓存一致性 分布式事务 分布式故障恢复 论文还讨论了一下性能，但是过了 20 年之后的今天，很难理解这些性能数据。因为作者在一个与今天非常不同的硬件，非常不同的环境测试的性能。笼统来说，作者展示的性能数据表明，随着越来越多的 Frangipani 工作站加入到系统中，系统并没有明显变慢。即…</p>
+<h2 id="117-crash-recovery"><a href="https://zhuanlan.zhihu.com/p/238006103">11.7 故障恢复（Crash Recovery）</a></h2>
+<p>接下来，我们讨论一下，当工作站持有锁，并且故障了会发生什么。 这里的场景是，当工作站需要重命名文件或者创建一个文件时，首先它会获得所有需要修改数据的锁，之后修改自身的缓存来体现改动。但是后来工作站在向 Petal 写入数据的过程中故障了。工作站可能在很多个位置发生故障，但是由于前面介绍过的工作流程，Frangipani 总是会…</p>
+<h2 id="116-frangipani-log"><a href="https://zhuanlan.zhihu.com/p/238003999">11.6 Frangipani Log</a></h2>
+<p>下一个有意思的事情是故障恢复。 我们需要能正确应对这种场景：一个工作站持有锁，并且在一个复杂操作的过程中崩溃了。比如说一个工作站在创建文件，或者删除文件时，它首先获取了大量了锁，然后会更新大量的数据，在其向 Petal 回写数据的过程中，一部分数据写入到了 Petal，还有一部分还没写入，这时工作站崩溃了，并且锁也没有释放（因…</p>
+<h2 id="115-atomicity"><a href="https://zhuanlan.zhihu.com/p/238001733">11.5 原子性（Atomicity）</a></h2>
+<p>下一个挑战是确保原子性。当我做了一个复杂的操作，比如说创建一个文件，这里涉及到标识一个新的 inode、初始化一个 inode（inode 是用来描述文件的一小份数据）、为文件分配空间、在目录中为新文件增加一个新的名字，这里有很多步骤，很多数据都需要更新。我们不想任何人看到任何中间的状态，我们希望其他的工作站要么发现文件不存…</p>
+<h2 id="114-cache-coherence"><a href="https://zhuanlan.zhihu.com/p/237999261">11.4 缓存一致性（Cache Coherence）</a></h2>
+<p>工作站和锁服务器之间的缓存一致协议协议包含了 4 种不同的消息。本质上你可以认为它们就是一些单向的网络消息。 首先是 Request 消息，从工作站发给锁服务器。Request 消息会说：hey 锁服务器，我想获取这个锁。 如果从锁服务器的 lock 表单中发现锁已经被其他人持有了，那锁服务器不能立即交出锁。但是一旦锁被释放了，锁服务器会… 
+ <a href="https://www.zhihu.com/column/c_1273718607160393728?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=62521130090496">https://www.zhihu.com/column/c_1273718607160393728?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=62521130090496</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%8C%E4%B8%8D%E7%9C%8B%E7%BB%9D%E5%AF%B9%E5%90%8E%E6%82%94_%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB_%E7%89%9B%E5%AE%A2%E7%BD%91/" class="btn btn-neutral float-right" title="史上最全的数据库面试题，不看绝对后悔_资源分享_牛客网">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../BenchmarkSQL5.0%20%E6%95%B0%E6%8D%AE%E5%BA%93%20TPC-C%20%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95%20-%20%E7%91%BE%E7%86%99%E7%9A%84%E5%8D%9A%E5%AE%A2%20JL%20Blog/" class="btn btn-neutral" title="BenchmarkSQL5.0 数据库 TPC-C 基准测试 - 瑾熙的博客 JL Blog"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../BenchmarkSQL5.0%20%E6%95%B0%E6%8D%AE%E5%BA%93%20TPC-C%20%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95%20-%20%E7%91%BE%E7%86%99%E7%9A%84%E5%8D%9A%E5%AE%A2%20JL%20Blog/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%8C%E4%B8%8D%E7%9C%8B%E7%BB%9D%E5%AF%B9%E5%90%8E%E6%82%94_%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB_%E7%89%9B%E5%AE%A2%E7%BD%91/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

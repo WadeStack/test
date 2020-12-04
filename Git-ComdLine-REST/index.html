@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Git-ComdLine-REST - My Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Git-ComdLine-REST";
+    var mkdocs_page_input_path = "Git-ComdLine-REST.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Git-ComdLine-REST</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#git">Git</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#git_1">Git 常用命令</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git_2">Git 标签管理</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git_3">Git 撤销与回滚</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git_4">Git 分支管理</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#restful-api">RESTful API</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_1">主要思想</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">设计原则</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#linux">Linux 常用命令</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">参考</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ADB%20%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3%E5%8F%8A%E7%94%A8%E6%B3%95%E5%A4%A7%E5%85%A8/">ADB 操作命令详解及用法大全</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E5%B7%B2%E4%B8%8A%E5%B2%B8%E5%AD%97%E8%8A%82%EF%BC%8C%E6%95%B4%E7%90%86%E4%B8%80%E6%B3%A2%E6%B5%8B%E5%BC%80%E9%9D%A2%E7%BB%8F_%E7%AC%94%E7%BB%8F%E9%9D%A2%E7%BB%8F_%E7%89%9B%E5%AE%A2%E7%BD%91/">已上岸字节，整理一波测开面经_笔经面经_牛客网</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mysql-index/">mysql-index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../BenchmarkSQL5.0%20%E6%95%B0%E6%8D%AE%E5%BA%93%20TPC-C%20%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95%20-%20%E7%91%BE%E7%86%99%E7%9A%84%E5%8D%9A%E5%AE%A2%20JL%20Blog/">BenchmarkSQL5.0 数据库 TPC-C 基准测试 - 瑾熙的博客 JL Blog</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../MIT6.824%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BE%E7%A8%8B%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/">MIT6.824 分布式系统课程中文翻译</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%8C%E4%B8%8D%E7%9C%8B%E7%BB%9D%E5%AF%B9%E5%90%8E%E6%82%94_%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB_%E7%89%9B%E5%AE%A2%E7%BD%91/">史上最全的数据库面试题，不看绝对后悔_资源分享_牛客网</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../HTTP%20%E5%90%84%E7%89%88%E6%9C%AC%E7%89%B9%E6%80%A7%E5%8F%8A%E5%8C%BA%E5%88%AB/">HTTP 各版本特性及区别</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mysql-transaction/">mysql-transaction</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E6%B5%8B%E8%AF%95%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%90%88%E9%9B%86%20-%20anliux%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD/">测试常见问题合集 - anliux - 博客园</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E4%B8%AA%E4%BA%BA%E5%90%90%E8%A1%80%E7%B3%BB%E5%88%97%20-%20%E6%80%BB%E7%BB%93%20MySQL/">个人吐血系列 - 总结 MySQL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E4%BD%BF%E7%94%A8%20benchmarkSQL%20%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%20TPCC%20-%20konglingbin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD/">使用 benchmarkSQL 测试数据库的 TPCC - konglingbin - 博客园</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Git-ComdLine-REST</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="git-comdline-rest">Git-ComdLine-REST</h1>
+<p><a href="https://github.com/wolverinn/Waking-Up/blob/cc918c65743540ff7a249b147da288edb7fef5bc/Git-ComdLine-REST.md">Permalink</a></p>
+<p>95 lines (83 sloc) 6.51 KB</p>
+<ul>
+<li><a href="#git">Git</a><ul>
+<li><a href="#git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">Git 常用命令</a></li>
+<li><a href="#git-%E6%A0%87%E7%AD%BE%E7%AE%A1%E7%90%86">Git 标签管理</a></li>
+<li><a href="#git-%E6%92%A4%E9%94%80%E4%B8%8E%E5%9B%9E%E6%BB%9A">Git 撤销与回滚</a></li>
+<li><a href="#git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86">Git 分支管理</a></li>
+</ul>
+</li>
+<li><a href="#restful-api">RESTful API</a></li>
+<li><a href="#linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">Linux 常用命令</a></li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
+<hr />
+<h2 id="git">Git</h2>
+<h4 id="git_1">Git 常用命令</h4>
+<ul>
+<li><code>git init</code></li>
+<li><code>git clone</code></li>
+<li><code>git remote add origin ***.git</code></li>
+<li><code>git push -u origin master</code></li>
+<li>推送到远程仓库的 dev 分支：<code>git push origin dev</code></li>
+<li><code>git log</code></li>
+<li><code>git log --graph --pretty=oneline --abbrev-commit</code></li>
+<li><code>git status</code></li>
+<li><code>git diff</code></li>
+<li><code>git add *</code></li>
+<li><code>git commit -m "message"</code></li>
+<li>commit 之后又改了一个小 bug，但是又不想增加一个 commit，可以用：<code>git commit --amend --no-edit</code>，直接将改动添加到上一次的 commit 中</li>
+<li><code>git push</code></li>
+<li><code>git pull</code></li>
+<li><code>touch .gitignore</code></li>
+</ul>
+<h4 id="git_2">Git 标签管理</h4>
+<ul>
+<li>首先切换到需要打标签的分支上，然后使用<code>git tag v1.0</code>就可以在当前 commit 打上 v1.0 的标签</li>
+<li><code>git tag v1.0 commitID</code> 对特定 commit 打标签</li>
+<li>打标签时加上 message：<code>git tag -a &lt;tagname&gt; -m "message"</code></li>
+<li><code>git tag</code> 查看所有标签</li>
+<li><code>git show [tagname]</code> 查看标签详细信息</li>
+<li><code>git push origin &lt;tagname&gt;</code>可以推送一个本地标签到远程仓库</li>
+<li><code>git push origin --tags</code>可以推送全部未推送过的本地标签</li>
+<li><code>git tag -d &lt;tagname&gt;</code>可以删除一个本地标签</li>
+<li><code>git push origin :refs/tags/&lt;tagname&gt;</code>可以删除一个远程标签（先从本地删除）</li>
+</ul>
+<h4 id="git_3">Git 撤销与回滚</h4>
+<ul>
+<li><strong>暂存区</strong>：<code>git add</code>之后 commit 之前存在的区域；<strong>工作区</strong>：<code>git commit</code>之后存在的区域；<strong>远程仓库</strong>：<code>git push</code>之后；</li>
+<li>作了修改，但还没<code>git add</code>，撤销到上一次提交：<code>git checkout -f -- filename</code>；<code>git checkout -f -- .</code></li>
+<li>作了修改，并且已经<code>git add</code>，但还没<code>git commit</code>：<ul>
+<li>先将暂存区的修改撤销：<code>git reset HEAD filename</code>/<code>git reset HEAD</code>；此时修改只存在于工作区，变为了 "unstaged changes"；</li>
+<li>再利用上面的 checkout 命令从工作区撤销修改</li>
+</ul>
+</li>
+<li><code>git add</code>之后，作了修改，想丢弃这次修改：<code>git checkout -f --filename</code>会回到最近一次<code>git add</code></li>
+<li>作了修改，并且已经<code>git commit</code>了，想撤销这次的修改：<ul>
+<li><code>git revert commitID</code>. 其实，<code>git revert</code>可以用来撤销任意一次的修改，不一定要是最近一次</li>
+<li><code>git reset --hard commitID</code>/<code>git reset --hard HEAD^</code>（HEAD 表示当前版本，几个 ^ 表示倒数第几个版本，倒数第 100 个版本可以用 HEAD~100）；参数<code>--hard</code>：强制将暂存区和工作区都同步到指定的版本</li>
+<li><code>git reset</code>和<code>git revert</code>的区别是：reset 是用来回滚的，将 HEAD 的指针指向了想要回滚的版本，作为最新的版本，而后面的版本也都没有了；而 revert 只是用来撤销某一次更改，对之后的更改并没有影响</li>
+<li>然后再用<code>git push -f</code>提交到远程仓库</li>
+</ul>
+</li>
+</ul>
+<h4 id="git_4">Git 分支管理</h4>
+<ul>
+<li>创建分支: <code>git branch test</code></li>
+<li>切换分支: <code>git checkout test</code></li>
+<li>创建并切换分支：<code>git checkout -b test</code></li>
+<li>将 test 分支的更改合并到 master 分支：先在 test 分支上 commit、push，再：<code>git checkout master</code>; <code>git merge test</code></li>
+<li>如果合并时产生冲突：先手动解决冲突，再合并</li>
+<li>删除分支：<code>git branch -d test</code></li>
+<li><code>git stash</code><ul>
+<li>如果当前分支还有任务没有做完，也不想提交，但此时需要切换或者创建其它分支，就可以使用 stash 将当前分支的所有修改（包括暂存区）先储藏起来；然后就可以切换到其它分支</li>
+<li>在其它分支工作完成之后，首先切换回原来的分支，然后使用<code>git stash list</code>命令查看</li>
+<li>可以使用<code>git stash apply &lt;stash number&gt;</code>恢复之前储藏的工作现场，再使用<code>git stash drop &lt;stash number&gt;</code>删除掉储藏的内容</li>
+<li>也可以直接用<code>git stash pop</code>恢复并删除内容</li>
+</ul>
+</li>
+<li>如果在其它分支上做了一个修改（比如修复了一个 bug，这次修改有一个 commitID），想要将这次修改应用到当前分支上，可以使用：<code>git cherry-pick commitID</code>，可以复制一个特定的提交到当前分支</li>
+</ul>
+<h2 id="restful-api">RESTful API</h2>
+<p>REST 指 Representational State Transfer，可以翻译为 “表现层状态转化”</p>
+<h4 id="_1">主要思想</h4>
+<ul>
+<li>对网络上的所有资源，都有一个<strong>统一资源标识符</strong> URI(Uniform Resource Identifier)；</li>
+<li>这些资源可以有多种表现形式，即 REST 中的 “表现层”Representation，比如，文本可以用 txt 格式表现，也可以用 HTML 格式、XML 格式、JSON 格式表现。URI 只代表资源的实体，不代表它的形式；</li>
+<li>“无状态 (Stateless)” 思想：服务端不应该保存客户端状态，只需要处理当前的请求，不需了解请求的历史，客户端每一次请求中包含处理该请求所需的一切信息；</li>
+<li>客户端使用 HTTP 协议中的 GET/POST/PUT/DELETE 方法对服务器的资源进行操作，即 REST 中的” 状态转化 “</li>
+</ul>
+<h4 id="_2">设计原则</h4>
+<ul>
+<li>URL 设计<ul>
+<li>最好只使用名词，而使用 GET/POST/PUT/DELETE 方法的不同表示不同的操作；比如使用<code>POST /user</code>代替<code>/user/create</code></li>
+<li>GET：获取资源；POST：新建 / 更新资源；PUT：更新资源；DELETE：删除资源；</li>
+<li>对于只支持 GET/POST 的客户端，使用<code>X-HTTP-Method-Override</code>属性，覆盖 POST 方法；</li>
+<li>避免多级 URL，比如使用<code>GET /authors/12?categories=2</code>代替<code>GET /authors/12/categories/2</code>；</li>
+<li>避免在 URI 中带上版本号。不同的版本，可以理解成同一种资源的不同表现形式，所以应该采用同一个 URI，版本号可以在 HTTP 请求头信息的 Accept 字段中进行区分</li>
+</ul>
+</li>
+<li>状态码：服务器应该返回尽可能精确的状态码，客户端只需查看状态码，就可以判断出发生了什么情况。见计算机网络部分 -- <a href="https://github.com/wolverinn/Waking-Up/blob/master/Computer%20Network.md#HTTP%E8%AF%B7%E6%B1%82%E6%9C%89%E5%93%AA%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%8A%B6%E6%80%81%E7%A0%81">HTTP 请求有哪些常见状态码？</a></li>
+<li>服务器回应：在响应中放上其它 API 的链接，方便用户寻找</li>
+</ul>
+<h2 id="linux">Linux 常用命令</h2>
+<h3 id="_3">参考</h3>
+<ul>
+<li><a href="https://www.liaoxuefeng.com/wiki/896043488029600">Git 教程 - 廖雪峰的官方网站</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html">RESTful API 最佳实践 - 阮一峰的网络日志</a></li>
+<li><a href="https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md">GitHub - jlevy/the-art-of-command-line: Master the command line, in one page</a> 
+    <a href="https://github.com/wolverinn/Waking-Up/blob/master/Git-ComdLine-REST.md">https://github.com/wolverinn/Waking-Up/blob/master/Git-ComdLine-REST.md</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ADB%20%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3%E5%8F%8A%E7%94%A8%E6%B3%95%E5%A4%A7%E5%85%A8/" class="btn btn-neutral float-right" title="ADB 操作命令详解及用法大全">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="../ADB%20%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3%E5%8F%8A%E7%94%A8%E6%B3%95%E5%A4%A7%E5%85%A8/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>使用 benchmarkSQL 测试数据库的 TPCC - konglingbin - 博客园 - My Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u4f7f\u7528 benchmarkSQL \u6d4b\u8bd5\u6570\u636e\u5e93\u7684 TPCC - konglingbin - \u535a\u5ba2\u56ed";
+    var mkdocs_page_input_path = "\u4f7f\u7528 benchmarkSQL \u6d4b\u8bd5\u6570\u636e\u5e93\u7684 TPCC - konglingbin - \u535a\u5ba2\u56ed.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../Git-ComdLine-REST/">Git-ComdLine-REST</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ADB%20%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3%E5%8F%8A%E7%94%A8%E6%B3%95%E5%A4%A7%E5%85%A8/">ADB 操作命令详解及用法大全</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E5%B7%B2%E4%B8%8A%E5%B2%B8%E5%AD%97%E8%8A%82%EF%BC%8C%E6%95%B4%E7%90%86%E4%B8%80%E6%B3%A2%E6%B5%8B%E5%BC%80%E9%9D%A2%E7%BB%8F_%E7%AC%94%E7%BB%8F%E9%9D%A2%E7%BB%8F_%E7%89%9B%E5%AE%A2%E7%BD%91/">已上岸字节，整理一波测开面经_笔经面经_牛客网</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mysql-index/">mysql-index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../BenchmarkSQL5.0%20%E6%95%B0%E6%8D%AE%E5%BA%93%20TPC-C%20%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95%20-%20%E7%91%BE%E7%86%99%E7%9A%84%E5%8D%9A%E5%AE%A2%20JL%20Blog/">BenchmarkSQL5.0 数据库 TPC-C 基准测试 - 瑾熙的博客 JL Blog</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../MIT6.824%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BE%E7%A8%8B%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/">MIT6.824 分布式系统课程中文翻译</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%8C%E4%B8%8D%E7%9C%8B%E7%BB%9D%E5%AF%B9%E5%90%8E%E6%82%94_%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB_%E7%89%9B%E5%AE%A2%E7%BD%91/">史上最全的数据库面试题，不看绝对后悔_资源分享_牛客网</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../HTTP%20%E5%90%84%E7%89%88%E6%9C%AC%E7%89%B9%E6%80%A7%E5%8F%8A%E5%8C%BA%E5%88%AB/">HTTP 各版本特性及区别</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mysql-transaction/">mysql-transaction</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E6%B5%8B%E8%AF%95%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%90%88%E9%9B%86%20-%20anliux%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD/">测试常见问题合集 - anliux - 博客园</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E4%B8%AA%E4%BA%BA%E5%90%90%E8%A1%80%E7%B3%BB%E5%88%97%20-%20%E6%80%BB%E7%BB%93%20MySQL/">个人吐血系列 - 总结 MySQL</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">使用 benchmarkSQL 测试数据库的 TPCC - konglingbin - 博客园</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>使用 benchmarkSQL 测试数据库的 TPCC - konglingbin - 博客园</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="benchmarksql-tpcc-konglingbin-">使用 benchmarkSQL 测试数据库的 TPCC - konglingbin - 博客园</h1>
+<p>压力测试是指在 MySQL 上线前，需要进行大量的压力测试，从而达到交付的标准。压力测试不仅可以测试 MySQL 服务的稳定性，还可以测试出 MySQL 和系统的瓶颈。</p>
+<p>TPCC 测试：Transaction Processing Performance Council，要熟练使用</p>
+<p>TPC 是一系列事务处理和数据库基准测试的规范。其中 TPC-C 是针对 OLTP 的基准测试模型，一方面可以衡量数据库的性能，另一方面可以衡量硬件性价比，也是广泛应用并关注的一种测试模型。</p>
+<p>TPC-C 模型是以一个在线零售业为例，设计的一种模型。具体架构如下所示：</p>
+<p><img alt="" src="https://img2018.cnblogs.com/blog/1309603/201905/1309603-20190508230126685-1687114996.png" /></p>
+<p><a href="https://rensanning.iteye.com/blog/2159732?utm_source=jiancool">https://rensanning.iteye.com/blog/2159732?utm_source=jiancool</a></p>
+<p><a href="https://launchpad.net/sysbench">SysBench</a> <br />
+使用： </p>
+<p>引用</p>
+<p>$ sysbench --test=oltp --db-driver=mysql --mysql-password=sbtest prepare <br />
+$ sysbench --test=oltp --db-driver=mysql --mysql-password=sbtest run</p>
+<p>结果： </p>
+<p>引用</p>
+<p>sysbench 0.4.12:  multi-threaded system evaluation benchmark </p>
+<p>Running the test with following options: <br />
+Number of threads: 1 </p>
+<p>Doing OLTP test. <br />
+Running mixed OLTP test <br />
+Using Special distribution (12 iterations,  1 pct of values are returned in 75 pct cases) <br />
+Using "BEGIN" for starting transactions </p>
+<p>TPC-C 测试模型给基准测试提供了一种统一的测试标准，并非实际应用系统中的真实测试结果，但通过测试结果，可以大体观察出 MySQL 数据库服务稳定性、性能以及系统性能等一系列问题。TPC-C 仅仅是一个测试模型，而在实际测试中，需要参考和使用一些测试工具，对系统和 MySQL 数据库进行压力测试、稳定性测试。</p>
+<ol>
+<li>安装 bzr 工具</li>
+</ol>
+<p>[root@mysql1 /]# yum install bzr</p>
+<ol>
+<li>下载 tpcc-mysql</li>
+</ol>
+<p>[root@mysql1 /]# bzr branch lp:~percona-dev/perconatools/tpcc-mysql</p>
+<ol>
+<li>编译安装 tpcc-mysql</li>
+</ol>
+<p>[root@mysql1 /]# export PATH=/usr/local/mysql/bin:$PATH</p>
+<p>[root@mysql1 /]# cd tpcc-mysql/src</p>
+<p>[root@mysql1 src]# make</p>
+<ol>
+<li>创建库</li>
+</ol>
+<p>[mysql@mysql1 ~]$ mysqladmin -usystem -p123456 -S /data/mysqldata/3306/mysql.sock create tpcc</p>
+<ol>
+<li>创建表</li>
+</ol>
+<p>[mysql@mysql1 ~]$ mysql -usystem -p123456 -S /data/mysqldata/3306/mysql.sock tpcc &lt; /tpcc-mysql/create_table.sql</p>
+<ol>
+<li>添加外键</li>
+</ol>
+<p>[mysql@mysql1 ~]$ mysql -usystem -p123456 -S /data/mysqldata/3306/mysql.sock tpcc &lt; /tpcc-mysql/add_fkey_idx.sql</p>
+<ol>
+<li>加载数据</li>
+</ol>
+<p>tpcc 默认会读取 /var/lib/mysql/mysql.sock 这个 socket 位置，因此如果你的 socket 不在相应路径的话，就需要做个软连接</p>
+<p>[root@mysql1 ~]# ln -s /data/mysqldata/3306/mysql.sock /var/lib/mysql/mysql.sock</p>
+<p>[root@mysql1 ~]# ln -s /usr/local/mysql/lib/libmysqlclient.so.18 /usr/lib64</p>
+<p>如果出现错误，尝试上面的步骤</p>
+<p>[mysql@mysql1 ~]$ /tpcc-mysql/tpcc_load localhost tpcc system "123456" 10</p>
+<p>*************************************</p>
+<p>*** ###easy### TPC-C Data Loader  ***</p>
+<p>*************************************</p>
+<p><Parameters></p>
+<p>[server]: localhost</p>
+<p>[port]: 3306</p>
+<p>[DBname]: tpcc</p>
+<p>[user]: system</p>
+<p>[pass]: 123456</p>
+<p>[warehouse]: 10</p>
+<p>TPCC Data Load Started...</p>
+<p>Loading Item</p>
+<p>.................................................. 5000</p>
+<p>.................................................. 10000</p>
+<p>.................................................. 15000</p>
+<p>...DATA LOADING COMPLETED SUCCESSFULLY.</p>
+<ol>
+<li>进行测试</li>
+</ol>
+<p>[mysql@mysql1 ~]$ /tpcc-mysql/tpcc_start -h localhost -d tpcc -u system -p "123456" -w 1 -c 10 -r 10 -l 20 -f /home/mysql/tpcc_mysql.log -t /home/mysql/tpcc_mysql.rtx</p>
+<p>-h：测试主机</p>
+<p>-d：测试的数据库</p>
+<p>-u：测试的用户</p>
+<p>-p：测试用户的密码</p>
+<p>-w：测试的 warehouse 数</p>
+<p>-c：测试的连接线程数</p>
+<p>-r：预热时间，warmup_time，以秒为单位，默认是 10 秒，目的是为了将数据加载到内存</p>
+<p>-l：测试时间，默认为 20 秒</p>
+<p>-i：report_interval 指定生成报告的间隔时间</p>
+<p>-f：report_file 将测试中各项操作的记录输出到指定文件内保存</p>
+<p>-t：trx_file 输出更详细的操作信息到指定文件内保存</p>
+<p>下面是返回结果：</p>
+<p>***************************************</p>
+<p>*** ###easy### TPC-C Load Generator ***</p>
+<p>***************************************</p>
+<p>option h with value 'localhost'</p>
+<p>option d with value 'tpcc'</p>
+<p>option u with value 'system'</p>
+<p>option p with value '123456'</p>
+<p>option w with value '1'</p>
+<p>option c with value '10'</p>
+<p>option r with value '10'</p>
+<p>option l with value '20'</p>
+<p>option f with value '/home/mysql/tpcc_mysql.log'</p>
+<p>option t with value '/home/mysql/tpcc_mysql.rtx'</p>
+<p><Parameters></p>
+<p>[server]: localhost</p>
+<p>[port]: 3306</p>
+<p>[DBname]: tpcc</p>
+<p>[user]: system</p>
+<p>[pass]: 123456</p>
+<p>[warehouse]: 1</p>
+<p>[connection]: 10</p>
+<p>[rampup]: 10 (sec.)</p>
+<p>[measure]: 20 (sec.)</p>
+<p>RAMP-UP TIME.(10 sec.)</p>
+<p>MEASURING START.</p>
+<p>10, 686(0):2.044|3.593, 684(0):0.487|1.325, 68(0):0.136|0.212, 68(0):2.060|2.095, 69(0):5.817|6.441</p>
+<p>20, 676(0):1.508|2.585, 679(0):0.352|1.618, 67(0):0.140|0.294, 68(0):1.585|1.762, 67(0):4.154|5.968</p>
+<p>分为 6 项，依次为操作时间 (秒)、创建订单、订单支付、查询订单、发货以及查询库存</p>
+<p>STOPPING THREADS..........</p>
+<p><Raw Results></p>
+<p>[0] sc:1362  lt:0  rt:0  fl:0</p>
+<p>[1] sc:1363  lt:0  rt:0  fl:0</p>
+<p>[2] sc:135  lt:0  rt:0  fl:0</p>
+<p>[3] sc:136  lt:0  rt:0  fl:0</p>
+<p>[4] sc:136  lt:0  rt:0  fl:0</p>
+<p>in 20 sec.</p>
+<p>&lt;Raw Results2(sum ver.)&gt;</p>
+<p>[0] sc:1362  lt:0  rt:0  fl:0</p>
+<p>[1] sc:1363  lt:0  rt:0  fl:0</p>
+<p>[2] sc:135  lt:0  rt:0  fl:0</p>
+<p>[3] sc:136  lt:0  rt:0  fl:0</p>
+<p>[4] sc:136  lt:0  rt:0  fl:0</p>
+<p><Constraint Check> (all must be [OK])</p>
+<p>[transaction percentage]</p>
+<p>Payment: 43.52% (&gt;=43.0%) [OK]</p>
+<p>Order-Status: 4.31% (&gt;= 4.0%) [OK]</p>
+<p>Delivery: 4.34% (&gt;= 4.0%) [OK]</p>
+<p>Stock-Level: 4.34% (&gt;= 4.0%) [OK]</p>
+<p>[response time (at least 90% passed)]</p>
+<p>New-Order: 100.00%  [OK]</p>
+<p>Payment: 100.00%  [OK]</p>
+<p>Order-Status: 100.00%  [OK]</p>
+<p>Delivery: 100.00%  [OK]</p>
+<p>Stock-Level: 100.00%  [OK]</p>
+<p><TpmC> </p>
+<p>4086.000 TpmC  每分钟能够处理的订单数量</p>
+<p>benchmarkSQL 在使用时分为数据准备和测试执行两个阶段，其中数据准备阶段完全在命令行环境，而执行测试则根据当前用户状态而自动选择在命令行，或界面中执行。JDK1.7</p>
+<p>二、数据准备：<br />
+1. 在 lib 中放置 JDBC 驱动；<br />
+2. 修改 run 目录下：run 开头的 3 个文件，修改里面 jdbc 驱动名称；<br />
+3. 修改配置文件，其中 props.ora 和 props.pg 分别是对应 oracle 和 pg 数据库的；</p>
+<p>第一个部分是 JDBC 连接信息。</p>
+<p>第二个部分是场景设置，其中 runTxnsPerTerminal 是每分钟执行事务数，runMins 是执行多少分钟，limitTxnsPerMin 是每分钟执行的事务总数，并且这里时间的单位是分钟。场景执行的最低条件是第二项大于 0。</p>
+<p>第三个部分是 TPCC 中，五个事务执行的比例，总数等于 100，通常不用修改。</p>
+<p>1) 建表：<br />
+建表的前提是初始化数据库</p>
+<p>然后执行./runSQL kingbase.properties sqlTableCreates</p>
+<p>sqlTableCreates 是默认的建表语句，首先在库中创建一个 benchmarksql 模式，所有表都创建在这个模式下。</p>
+<p>* 由于建表语句中没有表空间的设置信息，因此如果创建比较大的表，系统会报错，只要根据之前执行 TPCC 测试时的建表语句，稍加修改即可。</p>
+<p>* 在 ISQL 模式下，使用 set search_path = 模式名； 可以切换当前操作路径，按默认的方式查看指定模式下的内容。</p>
+<p>* 在 run 中，对应建表，建索引，还有删除表，复制表，删除索引等几个脚本，可以配合使用。</p>
+<p>2) 加载数据：<br />
+在 run 下执行./runLoader.sh kingbase.properties numWarehouses 1300 </p>
+<p>注意如果表过大，需要提前修改建表语句，增加表空间。</p>
+<p>3) 创建索引：<br />
+在 run 下执行./runSQL kingbase.properties sqlIndexCreates</p>
+<p>4) 执行测试：<br />
+在 run 下执行./runBenchmark.sh kingbase.properties</p>
+<p>系统开始滚屏，执行指定时间后显示需要的统计信息：</p>
+<p>一、BenchmarkSQL 是什么？<br />
+      BenchmarkSQL 是一款经典的开源数据库测试工具，内嵌了 TPCC 测试脚本，可以对 EnterpriseDB、PostgreSQL、MySQL、Oracle 以及 SQL Server 等数据库直接进行测试。</p>
+<p>二、测试前提<br />
+1. 安装 JDK。因为 BenchmarkSQL 本身是使用 Java 语言编写的，所以如果在 Linux 系统下还没有安装 JDK 的话，我们首先需要对其进行安装；<br />
+2. 安装 PostgreSQL 数据库系统。俗话说巧妇难为无米之炊，测试之前肯定需要有测试对象，本文是测试 PG 系统，故需安装有 PG；<br />
+3. 安装 BenchmarkSQL<br />
+可到 <a href="http://sourceforge.net">http://sourceforge.net</a> 中搜索 BenchmarkSQL 即可下到，windows，linux 版均有。我下载的是 linux 版的软件包 BenchmarkSQL-2.3.3.zip，unzip 解压后可以在 README 文件中看到该软件的使用说明，下面用中文具体介绍一下它的使用方法。</p>
+<p>三、测试步骤<br />
+1. 启动待测试的数据库系统，这里即指启动 PostgreSQL</p>
+<ol>
+<li>
+<p>在 BenchmarkSQL-2.3.3/run 目录下找到 postgres.properties 配置文件，修改该文件如下：<br />
+driver=org.postgresql.Driver<br />
+conn=jdbc:postgresql://localhost:5432/test        # 链接数据库地址<br />
+user=postgres      # 链接数据库用户名<br />
+password=password    # 密码<br />
+如果想测试其他数据库系统，则修改其他相应的配置文件即可，如 oracle.properties 等等。</p>
+</li>
+<li>
+<p>创建 TPC-C 基础表（即上篇博文中介绍的 TPC-C 模拟场景中 9 张表）<br />
+命令： runSQL.sh postgres.properties sqlTableCreates</p>
+</li>
+<li>
+<p>向数据库中导入指定大小的数据 (参考资料 2 中此步有个小问题，多写一个等号)<br />
+命令：loadData.sh postgres.properties numWarehouses 10<br />
+numWarehouse 指的是仓库数（具体含义见上篇博文），默认为 1，导入 9 张表的数据大小大概 70 多 M，<br />
+当 numWarehouse 为 10 时，数据大小可以近似当作 1GB 数据。</p>
+</li>
+<li>
+<p>为基础表创建必要的索引<br />
+命令： runSQL.sh postgres.properties sqlIndexCreates</p>
+</li>
+<li>
+<p>运行 runBenchmark.sh 借助 GUI 程序测试数据库<br />
+命令：runBenchmark.sh postgres.properties<br />
+注意：不要忘记设置图形界面的仓库数时要与第 4 步中设置的数量相符；此外，测试的结果报告除了显示在图形界面有显示以外，还在 run/reports 目录下有备份，随时可以查阅。 
+ <a href="https://www.cnblogs.com/klb561/p/10835775.html">https://www.cnblogs.com/klb561/p/10835775.html</a></p>
+</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../%E4%B8%AA%E4%BA%BA%E5%90%90%E8%A1%80%E7%B3%BB%E5%88%97%20-%20%E6%80%BB%E7%BB%93%20MySQL/" class="btn btn-neutral" title="个人吐血系列 - 总结 MySQL"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../%E4%B8%AA%E4%BA%BA%E5%90%90%E8%A1%80%E7%B3%BB%E5%88%97%20-%20%E6%80%BB%E7%BB%93%20MySQL/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

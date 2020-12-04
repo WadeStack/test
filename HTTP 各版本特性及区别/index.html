@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>HTTP 各版本特性及区别 - My Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "HTTP \u5404\u7248\u672c\u7279\u6027\u53ca\u533a\u522b";
+    var mkdocs_page_input_path = "HTTP \u5404\u7248\u672c\u7279\u6027\u53ca\u533a\u522b.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../Git-ComdLine-REST/">Git-ComdLine-REST</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ADB%20%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3%E5%8F%8A%E7%94%A8%E6%B3%95%E5%A4%A7%E5%85%A8/">ADB 操作命令详解及用法大全</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E5%B7%B2%E4%B8%8A%E5%B2%B8%E5%AD%97%E8%8A%82%EF%BC%8C%E6%95%B4%E7%90%86%E4%B8%80%E6%B3%A2%E6%B5%8B%E5%BC%80%E9%9D%A2%E7%BB%8F_%E7%AC%94%E7%BB%8F%E9%9D%A2%E7%BB%8F_%E7%89%9B%E5%AE%A2%E7%BD%91/">已上岸字节，整理一波测开面经_笔经面经_牛客网</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mysql-index/">mysql-index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../BenchmarkSQL5.0%20%E6%95%B0%E6%8D%AE%E5%BA%93%20TPC-C%20%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95%20-%20%E7%91%BE%E7%86%99%E7%9A%84%E5%8D%9A%E5%AE%A2%20JL%20Blog/">BenchmarkSQL5.0 数据库 TPC-C 基准测试 - 瑾熙的博客 JL Blog</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../MIT6.824%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BE%E7%A8%8B%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/">MIT6.824 分布式系统课程中文翻译</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%8C%E4%B8%8D%E7%9C%8B%E7%BB%9D%E5%AF%B9%E5%90%8E%E6%82%94_%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB_%E7%89%9B%E5%AE%A2%E7%BD%91/">史上最全的数据库面试题，不看绝对后悔_资源分享_牛客网</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">HTTP 各版本特性及区别</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">版本</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#http-09">HTTP 0.9</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#http-10">HTTP 1.0</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">请求头</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">响应头</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">特性</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_5">无状态</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_6">无连接</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#http-11">HTTP 1.1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_7">特性</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_8">长连接</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_9">管道化</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_10">缓存处理</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_11">断点传输</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#http-2">HTTP 2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_12">二进制分帧</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_13">多路复用</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_14">头部压缩</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#https-http">HTTPS 和 HTTP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_15">结尾</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_16">参考文章</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mysql-transaction/">mysql-transaction</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E6%B5%8B%E8%AF%95%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%90%88%E9%9B%86%20-%20anliux%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD/">测试常见问题合集 - anliux - 博客园</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E4%B8%AA%E4%BA%BA%E5%90%90%E8%A1%80%E7%B3%BB%E5%88%97%20-%20%E6%80%BB%E7%BB%93%20MySQL/">个人吐血系列 - 总结 MySQL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%E4%BD%BF%E7%94%A8%20benchmarkSQL%20%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%20TPCC%20-%20konglingbin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD/">使用 benchmarkSQL 测试数据库的 TPCC - konglingbin - 博客园</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>HTTP 各版本特性及区别</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="http">HTTP 各版本特性及区别</h1>
+<p>本文原创：fanmengyuan</p>
+<p>HTTP 是基于 TCP/IP 协议的一个应用层协议，是现代互联网的一个基础协议。规定了客户端与服务端之间的通信格式以及所占用的服务端口 80 (HTTPS 是 443)。</p>
+<h3 id="_1">版本</h3>
+<p>HTTP 协议从开始立项到现在一共经历了 <code>4</code> 个版本:</p>
+<pre><code class="bash">HTTP 0.9 -&gt; HTTP 1.0 -&gt; HTTP 1.1 -&gt; HTTP 2
+</code></pre>
+
+<h3 id="http-09">HTTP 0.9</h3>
+<p>HTTP 0.9 是一个最古老的版本</p>
+<ul>
+<li>只支持 <code>GET</code> 请求方式：由于不支持其他请求方式，因此客户端是没办法向服务端传输太多的信息</li>
+<li>没有请求头概念：所以不能在请求中指定版本号，服务端也只具有返回 HTML 字符串的能力</li>
+<li>服务端相响应之后，立即关闭 TCP 连接</li>
+</ul>
+<h3 id="http-10">HTTP 1.0</h3>
+<p>随着 HTTP 1.0 的发布，这个版本:</p>
+<ul>
+<li>请求方式新增了 POST，DELETE，PUT，HEADER 等方式</li>
+<li>增添了请求头和响应头的概念，在通信中指定了 HTTP 协议版本号，以及其他的一些元信息 (比如：状态码、权限、缓存、内容编码)</li>
+<li>扩充了传输内容格式，图片、音视频资源、二进制等都可以进行传输</li>
+</ul>
+<p>在这个版本主要的就是对请求和响应的元信息进行了扩展，客户端和服务端有更多的获取当前请求的所有信息，进而更好更快的处理请求相关内容。</p>
+<h4 id="_2">请求头</h4>
+<p>一个简单请求的头信息</p>
+<p>可以看到在请求方法之后有 请求资源的位置 + 请求协议版本，之后是一些客户端的信息配置</p>
+<h4 id="_3">响应头</h4>
+<p>一个简单响应的头信息 (v1.0)</p>
+<p>服务端的响应头第一个就是 请求协议版本，后面紧跟着是这次请求的状态码、以及状态码的描述，之后的内容是一些关于返回内容的描述。</p>
+<p><strong>Content-Type</strong></p>
+<p>在 HTTP 1.0 的时候，任何的资源都可以被传输，传输的格式呢也是多种多样的，客户端在收到响应体的内容的时候就是根据这个 <code>Content-Type</code> 去进行解析的。所以服务端返回时候必须带着这个字段。</p>
+<p>一些常见的 <code>Content-Type</code> 可以参考 <a href="http://tool.oschina.net/commons/">对照表</a>。 这些 <code>Content-Type</code> 有一个总称叫做 <code>MIME type</code>。</p>
+<p>关于 <code>MIME type</code>，这里想播插一个小插曲:</p>
+<blockquote>
+<p>在 chrome 浏览器中，当跨域请求回来的数据 MIME type 同跨域标签应有的 MIME type 不匹配时，浏览器会启动 CORB 保护数据不被泄漏。被保护的数据有: html、xml、json。(eg: script、img 标签所支持的 MIME type 和他们都不一致)，所以服务端在返回资源的时候一定要对应返回正确的 <code>Content-Type</code>，以免浏览器屏蔽返回结果。</p>
+<p>笔者遇到的问题是在 chrome v76 版本之后，跨域图片资源当请求回来的数据 <code>Content-Type</code> 不是 <code>image/*</code>，图片会被拦截，页面不展示图片。</p>
+</blockquote>
+<h4 id="_4">特性</h4>
+<ul>
+<li>无状态：服务器不跟踪不记录请求过的状态</li>
+<li>无连接：浏览器每次请求都需要建立 tcp 连接</li>
+</ul>
+<h5 id="_5">无状态</h5>
+<p>对于无状态的特性可以借助 cookie/session 机制来做身份认证和状态记录</p>
+<h5 id="_6">无连接</h5>
+<p>无连接导致的性能缺陷有两种：</p>
+<ul>
+<li>无法复用连接<br />
+    每次发送请求，都需要进行一次 tcp 连接（即 3 次握手 4 次挥手），使得网络的利用率非常低</li>
+<li>队头阻塞<br />
+    HTTP 1.0 规定在前一个请求响应到达之后下一个请求才能发送，如果前一个阻塞，后面的请求也给阻塞的</li>
+</ul>
+<h3 id="http-11">HTTP 1.1</h3>
+<p>HTTP 1.1 是在 1.0 发布之后的半年就推出了，完善了 1.0 版本。目前也还有很多的互联网项目基于 HTTP 1.1 在向外提供服务。</p>
+<h4 id="_7">特性</h4>
+<ul>
+<li>长连接：新增 Connection 字段，可以设置 keep-alive 值保持连接不断开</li>
+<li>管道化：基于上面长连接的基础，管道化可以不等第一个请求响应继续发送后面的请求，但响应的顺序还是按照请求的顺序返回</li>
+<li>缓存处理：新增字段 cache-control</li>
+<li>断点传输</li>
+</ul>
+<h5 id="_8">长连接</h5>
+<p>HTTP 1.1 默认保持长连接，数据传输完成保持 tcp 连接不断开，继续用这个通道传输数据</p>
+<h5 id="_9">管道化</h5>
+<p>基于长连接的基础，我们先看没有管道化请求响应：</p>
+<p>tcp 没有断开，用的同一个通道</p>
+<pre><code class="bash">请求1 &gt; 响应1 --&gt; 请求2 &gt; 响应2 --&gt; 请求3 &gt; 响应3
+</code></pre>
+
+<p>管道化的请求响应：</p>
+<pre><code class="bash">请求1 --&gt; 请求2 --&gt; 请求3 &gt; 响应1 --&gt; 响应2 --&gt; 响应3
+</code></pre>
+
+<p>即使服务器先准备好响应 2, 也是按照请求顺序先返回响应 1</p>
+<p>虽然管道化，可以一次发送多个请求，但是响应仍是顺序返回，仍然无法解决队头阻塞的问题</p>
+<h4 id="_10">缓存处理</h4>
+<p>当浏览器请求资源时，先看是否有缓存的资源，如果有缓存，直接取，不会再发请求，如果没有缓存，则发送请求。 通过设置字段 cache-control 来控制缓存。</p>
+<h4 id="_11">断点传输</h4>
+<p>在上传 / 下载资源时，如果资源过大，将其分割为多个部分，分别上传 / 下载，如果遇到网络故障，可以从已经上传 / 下载好的地方继续请求，不用从头开始，提高效率</p>
+<h3 id="http-2">HTTP 2</h3>
+<p>特性:</p>
+<ul>
+<li>二进制分帧</li>
+<li>多路复用： 在共享 TCP 链接的基础上同时发送请求和响应</li>
+<li>头部压缩</li>
+<li>服务器推送：服务器可以额外的向客户端推送资源，而无需客户端明确的请求</li>
+</ul>
+<h4 id="_12">二进制分帧</h4>
+<p>HTTP 1.x 的解析是基于文本，HTTP 2 之后将所有传输的信息分割为更小的消息和帧，并对它们采用二进制格式的编码，提高传输效率</p>
+<h4 id="_13">多路复用</h4>
+<p>在共享 TCP 链接的基础上同时发送请求和响应，基于二进制分帧，在同一域名下所有访问都是从同一个 tcp 连接中走，http 消息被分解为独立的帧，乱序发送，服务端根据标识符和首部将消息重新组装起来。</p>
+<h4 id="_14">头部压缩</h4>
+<p>由于 HTTP 是无状态的，每一个请求都需要头部信息标识这次请求相关信息，所以会造成传输很多重复的信息，当请求数量增大的时候，消耗的资源就会慢慢积累上去。所以 HTTP 2 可以维护一个头部信息字典，差量进行更新头信息，减少头部信息传输占用的资源，详见 <a href="https://imququ.com/post/header-compression-in-http2.html">HTTP/2 头部压缩技术介绍</a>。</p>
+<h3 id="https-http">HTTPS 和 HTTP</h3>
+<ul>
+<li>HTTPS 协议需要申请证书</li>
+<li>HTTP 和 HTTPS 使用端口不一样，前者是 80，后者是 443</li>
+<li>HTTP 协议运行在 TCP 之上，所有传输的内容都是明文，HTTPS 运行在 SSL/TLS 之上，SSL/TLS 运行在 TCP 之上，所有传输的内容都经过加密的</li>
+<li>HTTPS 可以有效的防止运营商劫持</li>
+</ul>
+<h3 id="_15">结尾</h3>
+<p>虽然在 2015 年，HTTP 2 就发布了，但是目前互联网的服务中，使用 HTTP 1.x 版本的服务不在少数，其中可能很大的一个原因是在当前的主流浏览器比如 chrome、Firefox 它们只支持基于 TLS 部署的 HTTP 2 协议，也就是说需要你的网站先升级为 HTTPS 才可以。然而 HTTPS 是需要申请证书的。</p>
+<p>当然如果你的网站已经升级过 HTTPS 了，那么想升级 HTTP 2 就非常容易了。前端服务利器 <code>nginx</code> 能帮你做这所有，详见 <a href="https://www.nginx.com/blog/nginx-1-9-5/">Open Source NGINX 1.9.5 Released with HTTP/2 Support</a></p>
+<h3 id="_16">参考文章</h3>
+<ul>
+<li>
+<p><a href="http://www.ruanyifeng.com/blog/2016/08/http.html">www.ruanyifeng.com/blog/2016/0…</a></p>
+</li>
+<li>
+<p><a href="https://imququ.com/post/header-compression-in-http2.html">imququ.com/post/header…</a></p>
+</li>
+<li>
+<p><a href="https://www.cnblogs.com/Leo_wl/p/10530323.html">www.cnblogs.com/Leo_wl/p/10…</a> </p>
+</li>
+</ul>
+<blockquote>
+<p><a href="https://juejin.cn/post/6844903923136856078">原文地址</a></p>
+</blockquote>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../mysql-transaction/" class="btn btn-neutral float-right" title="mysql-transaction">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%8C%E4%B8%8D%E7%9C%8B%E7%BB%9D%E5%AF%B9%E5%90%8E%E6%82%94_%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB_%E7%89%9B%E5%AE%A2%E7%BD%91/" class="btn btn-neutral" title="史上最全的数据库面试题，不看绝对后悔_资源分享_牛客网"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%8C%E4%B8%8D%E7%9C%8B%E7%BB%9D%E5%AF%B9%E5%90%8E%E6%82%94_%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB_%E7%89%9B%E5%AE%A2%E7%BD%91/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../mysql-transaction/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
