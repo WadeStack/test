@@ -9,6 +9,7 @@ pages:
     - index: index.md
     - BenchmarkSQL5.0 数据库 TPC-C 基准测试 - 瑾熙的博客 JL Blog: BenchmarkSQL5.0 数据库 TPC-C 基准测试 - 瑾熙的博客 JL Blog.md
     - 面试官问我：说说你对浏览器缓存的理解: 面试官问我：说说你对浏览器缓存的理解.md
+    - MkDocs 构建你自己的知识库: MkDocs 构建你自己的知识库.md
     - 中文文案排版指北: 中文文案排版指北.md
     - 书写高质量 SQL 的 30 条建议: 书写高质量 SQL 的 30 条建议.md
     - MIT6.824 分布式系统课程中文翻译: MIT6.824 分布式系统课程中文翻译.md
