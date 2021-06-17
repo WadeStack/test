@@ -2,25 +2,25 @@ site_name: My Docs
 theme: readthedocs
 plugins:
 pages:
-    - 面试官问我：说说你对浏览器缓存的理解: 面试官问我：说说你对浏览器缓存的理解.md
-    - 书写高质量 SQL 的 30 条建议: 书写高质量 SQL 的 30 条建议.md
     - 程序员跳槽时，如何优雅地谈薪水: 程序员跳槽时，如何优雅地谈薪水.md
-    - 47 张图带你 MySQL 进阶: 47 张图带你 MySQL 进阶.md
-    - MkDocs 构建你自己的知识库: MkDocs 构建你自己的知识库.md
-    - 使用 benchmarkSQL 测试数据库的 TPCC - konglingbin - 博客园: 使用 benchmarkSQL 测试数据库的 TPCC - konglingbin - 博客园.md
-    - index: index.md
-    - 如何精准地在 GitHub 搜索项目: 如何精准地在 GitHub 搜索项目.md
-    - BenchmarkSQL5.0 数据库 TPC-C 基准测试 - 瑾熙的博客 JL Blog: BenchmarkSQL5.0 数据库 TPC-C 基准测试 - 瑾熙的博客 JL Blog.md
+    - 面试官问我：说说你对浏览器缓存的理解: 面试官问我：说说你对浏览器缓存的理解.md
     - 面试常问智力题: 面试常问智力题.md
-    - mysql-transaction: mysql-transaction.md
-    - 史上最全的数据库面试题，不看绝对后悔_资源分享_牛客网: 史上最全的数据库面试题，不看绝对后悔_资源分享_牛客网.md
-    - 详解 MySQL 基准测试和 sysbench 工具: 详解 MySQL 基准测试和 sysbench 工具.md
-    - 中文文案排版指北: 中文文案排版指北.md
-    - ADB 操作命令详解及用法大全: ADB 操作命令详解及用法大全.md
-    - MIT6.824 分布式系统课程中文翻译: MIT6.824 分布式系统课程中文翻译.md
-    - HTTP 各版本特性及区别: HTTP 各版本特性及区别.md
-    - 个人吐血系列 - 总结 MySQL: 个人吐血系列 - 总结 MySQL.md
-    - 测试常见问题合集 - anliux - 博客园: 测试常见问题合集 - anliux - 博客园.md
     - mysql-index: mysql-index.md
-    - Git-ComdLine-REST: Git-ComdLine-REST.md
+    - 使用 benchmarkSQL 测试数据库的 TPCC - konglingbin - 博客园: 使用 benchmarkSQL 测试数据库的 TPCC - konglingbin - 博客园.md
+    - BenchmarkSQL5.0 数据库 TPC-C 基准测试 - 瑾熙的博客 JL Blog: BenchmarkSQL5.0 数据库 TPC-C 基准测试 - 瑾熙的博客 JL Blog.md
+    - 史上最全的数据库面试题，不看绝对后悔_资源分享_牛客网: 史上最全的数据库面试题，不看绝对后悔_资源分享_牛客网.md
+    - 中文文案排版指北: 中文文案排版指北.md
+    - index: index.md
+    - ADB 操作命令详解及用法大全: ADB 操作命令详解及用法大全.md
     - 已上岸字节，整理一波测开面经_笔经面经_牛客网: 已上岸字节，整理一波测开面经_笔经面经_牛客网.md
+    - HTTP 各版本特性及区别: HTTP 各版本特性及区别.md
+    - Git-ComdLine-REST: Git-ComdLine-REST.md
+    - mysql-transaction: mysql-transaction.md
+    - 测试常见问题合集 - anliux - 博客园: 测试常见问题合集 - anliux - 博客园.md
+    - MkDocs 构建你自己的知识库: MkDocs 构建你自己的知识库.md
+    - 如何精准地在 GitHub 搜索项目: 如何精准地在 GitHub 搜索项目.md
+    - 个人吐血系列 - 总结 MySQL: 个人吐血系列 - 总结 MySQL.md
+    - 47 张图带你 MySQL 进阶: 47 张图带你 MySQL 进阶.md
+    - MIT6.824 分布式系统课程中文翻译: MIT6.824 分布式系统课程中文翻译.md
+    - 详解 MySQL 基准测试和 sysbench 工具: 详解 MySQL 基准测试和 sysbench 工具.md
+    - 书写高质量 SQL 的 30 条建议: 书写高质量 SQL 的 30 条建议.md
