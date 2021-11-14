@@ -13,6 +13,7 @@ pages:
     - 个人吐血系列 - 总结 MySQL: 个人吐血系列 - 总结 MySQL.md
     - mysql-transaction: mysql-transaction.md
     - index: index.md
+    - 前后端分离常用的认证方式: 前后端分离常用的认证方式.md
     - MkDocs 构建你自己的知识库: MkDocs 构建你自己的知识库.md
     - 47 张图带你 MySQL 进阶: 47 张图带你 MySQL 进阶.md
     - 测试常见问题合集 - anliux - 博客园: 测试常见问题合集 - anliux - 博客园.md
